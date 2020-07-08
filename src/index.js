@@ -1,17 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+/*
+    gate file for the project
+ */
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import React from 'react'
+import ReactDOM  from 'react-dom'
+import 'antd/dist/antd.css'
+import App from './App'
+import storageUtils from "./utils/storageUtils";
+import memoryUtils from "./utils/memoryUtils";
+//render App components into index.html in div 'root'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//read userInfo in localstorage
+const user = storageUtils.getUser()
+memoryUtils.user = user
+ReactDOM.render(<App />, document.getElementById("root"))
